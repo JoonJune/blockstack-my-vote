@@ -51,9 +51,32 @@
 结果页(不可见)
 ![](resources/07-result-unvisible.png)
 
-## 数据说明
+## 数据说明(目前还未想好数据怎样共享)
+
+- user.json<br>
+>用于存储所有参与人的信息,数组格式
+
+字段|存储类型|说明
+---|---|---
+id|string|用于记录blockstack.id
+
+json例子<br>
+   ```
+   [
+       {
+           "id":"number_one.id.blockstack"
+       },
+       {
+           "id":"number_two.id.blockstack"
+       },
+       {
+           "id":"number_three.id.blockstack"
+       }
+   ]
+   ```
+
 - user-latest.json<br>
->用于存储所有参与人的信息,按照时间顺序,数组格式
+>用于存储按照时间倒叙存储的用户信息,数组格式
 
 字段|存储类型|说明
 ---|---|---
@@ -83,7 +106,7 @@ json例子<br>
    ```
 
 - user-hot.json<br>
->用于存储所有参与人的信息,按照热门信息,数组格式
+>用于存储按照投票人数的参与人信息,近3个月,数组格式
 
 字段|存储类型|说明
 ---|---|---
@@ -218,3 +241,6 @@ json例子
     }
 ]
 ```
+
+## 数据流转(??)
+![](resources/dataflow-01.png)
