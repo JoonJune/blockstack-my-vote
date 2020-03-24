@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import {
   Person,
 } from 'blockstack';
@@ -16,8 +17,10 @@ export default class Profile extends Component {
         },
   	  	avatarUrl() {
   	  	  return avatarFallbackImage;
-  	  	},
+  	  	}
   	  },
+      newState:"",
+        status:""
   	};
   }
 
@@ -41,11 +44,66 @@ export default class Profile extends Component {
             Logout
           </button>
         </p>
+        <textarea className="input-status"
+                  value={this.state.newState}
+                  onChange={e => this.handleNewStatusChange(e)}
+                  placeholder="输入状态"/>
+                  <br/>
+                  <button onClick={e=>this.handleNewStatusSubmit(e)}>提交</button>
+          <p> status is {this.state.status.text}</p>
       </div> : null
     );
   }
 
-  componentWillMount() {
+  handleNewStatusChange(e) {
+      // 监听变化
+      this.setState({
+          newState : e.target.value
+      });
+
+  }
+
+  handleNewStatusSubmit(e) {
+      this.saveNewStatus(this.state.newState);
+      this.setState({
+          newState:""
+      });
+  }
+
+  saveNewStatus(stateText) {
+      const {userSession} = this.props
+      // 定义格式
+      let status = {
+          text:stateText.trim()
+          , create_dt: Date.now()
+      }
+
+      const options = {encrypt:false}
+      userSession.putFile('status.json', JSON.stringify(status), options)
+          .then(()=>{
+              this.setState({
+                  newStatus:status.text
+              })
+          });
+  }
+
+  componentDidMount() {
+      this.fetchData();
+  }
+
+  fetchData() {
+      const {userSession} = this.props;
+      const options = {decrypt:false}
+      userSession.getFile('status.json', options)
+          .then((file) => {
+              var status = JSON.parse(file || '[]');
+              this.setState({
+                  status:status
+              })
+          });
+  }
+
+    componentWillMount() {
     const { userSession } = this.props;
     this.setState({
       person: new Person(userSession.loadUserData().profile),

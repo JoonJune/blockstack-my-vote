@@ -13,10 +13,13 @@
   "license": "MIT",
   "dependencies": {
     "blockstack": "^19.2.5",
+    "less": "^3.11.1",
+    "less-loader": "^5.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "react-uikits": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

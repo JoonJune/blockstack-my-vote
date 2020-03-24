@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Profile from './js/Profile.js';
 import Signin from './js/Signin.js';
+import Vote from './js/Vote.js';
+
 import {
   UserSession,
   AppConfig
@@ -24,14 +26,12 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="site-wrapper">
-        <div className="site-wrapper-inner">
-          { !userSession.isUserSignedIn() ?
-            <Signin userSession={userSession} handleSignIn={ this.handleSignIn } />
-            : <Profile userSession={userSession} handleSignOut={ this.handleSignOut } />
-          }
+        <div className="d-flex justify-content-center">
+        {!userSession.isUserSignedIn() ? <Signin userSession={userSession} handleSignIn={ this.handleSignIn } />
+        // : <Profile userSession={userSession} handleSignOut={ this.handleSignOut } />
+          : <Vote userSession={userSession} handleSignOut={ this.handleSignOut } />
+        }
         </div>
-      </div>
     );
   }
 

@@ -1,7 +1,9 @@
 /* Globals */
-a,a:focus,a:hover{color:#fff;}
-html,body{height:100%;background-color:#F4F4FC;}
-body{color:#3700FF;text-align:center;}
+/*a,a:focus,a:hover{color:#fff;}*/
+a.active{color:#007bff}
+a.no-active{color:#4e555b}
+html,body{height:100%;background-color:#e9ecef;}
+
 .hide{display:none;}
 .landing-heading{font-family:'Source Code Pro',monospace;font-weight:400;}
 
@@ -18,8 +20,8 @@ body{color:#3700FF;text-align:center;}
 .avatar-section{margin-bottom:25px;}
 
 /* Scaffolding */
-.site-wrapper{display:table;width:100%;height:90% !important;min-height:90vh !important;}
-.site-wrapper-inner{display:flex;flex-direction:column;justify-content:center;margin-right:auto;margin-left:auto;width:100%;height:90%;}
+.site-wrapper{display:table;width:100%;}
+.site-wrapper-inner{display:flex;flex-direction:column;justify-content:center;margin-right:auto;margin-left:auto;width:100%;}
 .panel-authed{padding:0 0 0 0;}
 
 /* Home button */
@@ -28,3 +30,10 @@ body{color:#3700FF;text-align:center;}
 /* Input */
 input, textarea{color:#000;}
 input, textarea{color:#000;}
+
+.container-form {max-width: 850px}
+.container-form span, .container-form input, .container-form textarea, .container-form label, .container-form button {font-size: 0.8rem}
+.btn-form {padding: 0 1rem;line-height: initial;}
+.w140 {width:140px;}
+.w10 {width:10px;}
+.w45 {width:45px;}
