@@ -28,8 +28,7 @@ export default class App extends Component {
     return (
         <div className="d-flex justify-content-center">
         {!userSession.isUserSignedIn() ? <Signin userSession={userSession} handleSignIn={ this.handleSignIn } />
-        // : <Profile userSession={userSession} handleSignOut={ this.handleSignOut } />
-          : <Vote userSession={userSession} handleSignOut={ this.handleSignOut } />
+        : <Vote userSession={userSession} handleSignOut={ this.handleSignOut } />
         }
         </div>
     );

@@ -32,8 +32,8 @@ input, textarea{color:#000;}
 input, textarea{color:#000;}
 
 .container-form {max-width: 850px}
+label, input, textarea {font-size: 0.8rem !important;}
+label {min-width: 130px !important;}
+label.radio {min-width: initial !important;}
+.form {width:80% !important; border: 1px solid white;}
 .container-form span, .container-form input, .container-form textarea, .container-form label, .container-form button {font-size: 0.8rem}
-.btn-form {padding: 0 1rem;line-height: initial;}
-.w140 {width:140px;}
-.w10 {width:10px;}
-.w45 {width:45px;}
