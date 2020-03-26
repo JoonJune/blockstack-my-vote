@@ -81,7 +81,6 @@ export default class Vote extends Component {
                     <div className="d-flex justify-content-center">
                         <button className="dot blue" onClick={e=>this.submit(e)}>发起</button>
                         <button className="dot gray" onClick={e=>this.cancel(e)}>返回</button>
-                        <button className="dot gray" onClick={e=>this.logout(e)}>退出</button>
                     </div>
                 </Form> : null
         );
@@ -141,11 +140,6 @@ export default class Vote extends Component {
             title: '返回',
             content: '完善中...'
         });
-    }
-
-    logout(e) {
-        const {handleSignOut} = this.props;
-        handleSignOut(e);
     }
 
     componentWillMount() {

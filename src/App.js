@@ -26,10 +26,16 @@ export default class App extends Component {
 
   render() {
     return (
-        <div className="d-flex justify-content-center">
-        {!userSession.isUserSignedIn() ? <Signin userSession={userSession} handleSignIn={ this.handleSignIn } />
-        : <Vote userSession={userSession} handleSignOut={ this.handleSignOut } />
-        }
+        <div className="container">
+          <div className="d-flex flex-row-reverse bd-highlight">
+            <div className="p-2 bd-highlight" onClick={e => this.handleSignOut(e)}>Logout</div>
+            <div className="p-2 bd-highlight">Home</div>
+          </div>
+          <div className="d-flex justify-content-center">
+          {!userSession.isUserSignedIn() ? <Signin userSession={userSession} handleSignIn={ this.handleSignIn } />
+          : <Vote userSession={userSession} handleSignOut={ this.handleSignOut } />
+          }
+          </div>
         </div>
     );
   }
